@@ -1,60 +1,235 @@
-body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
+:root {
+    --primary: #fc0366;
+    --accent: #fff587;
+    --secondary: #0bbd8a;
+    --white: #fff;
+    --off-black: #222;
 }
 
-header {
-    background: #ffcc00;
-    color: #333;
-    padding: 20px 0;
+@font-face {
+    font-family: 'Alexandria';
+    src: url('../fonts/Alexandria.woff2') format('woff2'),
+         url('../fonts/Alexandria.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.logo,
+h1, h2, h3, .btn {
+    font-family: 'Alexandria', 'Segoe UI', Arial, sans-serif;
+    font-weight: 500;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: var(--white);
+    color: var(--off-black);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    background: var(--secondary);
+    padding: 0.5rem 1rem;
+}
+
+.logo {
+    color: var(--white);
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center; /* Vertically center nav items */
+    height: 100%;
+}
+.nav-links a {
+       color: var(--white);
+    margin-left: 1rem;
+    text-decoration: none;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.4rem 1rem;
+    border: 2px solid var(--white);
+    border-radius: 2rem;
+    background: transparent;
+    transition: background 0.2s, color 0.2s;
+    font-family: 'Alexandria', 'Segoe UI', Arial, sans-serif;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    background: var(--white);
+    color: var(--secondary);
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+      border: none;
+    background: none;
+    padding: 0;
+    margin-left: 0.5rem;
+}
+
+.hero {
+    position: relative;
+    background: var(--accent);
+    padding: 2rem 0 1rem 0;
     text-align: center;
 }
 
-nav {
-    background: #333;
-    color: #fff;
-    padding: 10px 0;
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 1rem auto;
+    overflow: hidden;
+    border-radius: 1rem;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+.carousel-img {
+    width: 100%;
+    display: none;
+    transition: opacity 0.5s;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+.carousel-img.active {
+    display: block;
 }
 
-nav ul li a {
-    color: #fff;
+.hero-text h1 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+}
+
+.hero-text p {
+    color: var(--secondary);
+    font-size: 1.2rem;
+}
+
+.pancake-nights {
+    background: var(--secondary);
+    color: var(--white);
+    padding: 2rem 1rem;
+}
+
+.pancake-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.pancake-text {
+    flex: 1 1 300px;
+    padding-right: 2rem;
+}
+
+.pancake-video {
+    flex: 1 1 300px;
+    min-width: 250px;
+}
+
+.pancake-video video {
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.btn {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--primary);
+    padding: 0.7rem 1.5rem;
+    border-radius: 2rem;
     text-decoration: none;
+    font-weight: bold;
+    margin-top: 1rem;
+    transition: background 0.2s;
 }
 
-main {
-    padding: 20px;
+.btn:hover {
+    background: var(--white);
+}
+
+.daytime-menu {
+    background: var(--white);
+    color: var(--off-black);
+    padding: 2rem 1rem;
+}
+
+.daytime-content {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.daytime-carousel {
+    flex: 1 1 300px;
+    min-width: 250px;
+    margin-right: 2rem;
+}
+
+.daytime-carousel .carousel-img {
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.daytime-text {
+    flex: 1 1 300px;
+}
+
+.instagram-feed {
+    background: var(--accent);
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+#insta-posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.insta-post {
+    width: 180px;
+    height: 180px;
+    background: var(--white);
+    border-radius: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    overflow: hidden;
 }
 
 footer {
-    background: #333;
-    color: #fff;
+    background: var(--primary);
+    color: var(--white);
     text-align: center;
-    padding: 10px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    padding: 1rem 0;
+    font-size: 1rem;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-@media (max-width: 768px) {
-    nav ul li {
-        display: block;
-        margin: 10px 0;
+@media (max-width: 800px) {
+    .pancake-content, .daytime-content {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .pancake-text, .daytime-text, .pancake-video, .daytime-carousel {
+        padding: 0;
+        margin: 0;
     }
 }
